@@ -1,0 +1,14 @@
+.popapilus_overlay {
+  background: #000 url('img/overlay.png') repeat left top;
+  opacity: 0.4;
+}
+
+.popapilus {
+  width: 500px;
+  height: 400px;
+  background: #fff;
+}
+
+/*
+
+*/
