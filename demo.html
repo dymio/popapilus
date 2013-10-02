@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Popapilus Demo</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <style type="text/css">
+      .popapilus_overlay {
+        background: #000 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeBAMAAADJHrORAAAAMFBMVEX///8HBwcICAgUFBQXFxcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABuanbkAAAAQUlEQVR4nOzOoQ0AIBDF0K5QNiC3wYUN2H8nJPkai6l5prSOdcPU2jckN8mTZEmWZEmW5EFy8f+e/g4AAAD//wMAKnM4yCLdBHkAAAAASUVORK5CYII=') repeat left top;
+        opacity: 0.4;
+      }
+      .popapilus { width: 500px; height: 400px; background: #fff; }
+
+      #content {
+        position: relative;
+        width: 888px;
+        margin: 0 auto;
+        padding: 22px 0 0 0;
+        clear: both;
+      }
+      .close {
+        position: absolute;
+        top: 8px; right: 4px;
+        width: 12px;
+        height: 4px;
+        background: black;
+        -moz-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+        cursor: pointer;
+      }
+      .close:before {
+        content: "";
+        position: absolute;
+        left: 4px; top: -4px;
+        width: 4px; height: 12px;
+        background: black;
+      }
+    </style>
+    
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../jquery.popapilus.js" ></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        popapilus = $.popapilus();
+        $("#show_popup").click(function() {
+          popapilus.show('<div class="close"></div><h3 style="margin:0;line-height:400px;text-align:center;">Hello to everyone who came!</h3>');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <section id="content">
+      <p>This is the simplest example of popapilus modal window centered with fixed position.</p>
+      <p>
+        <a id="show_popup" href="javascript:void(0)">Show popup</a>
+      </p>
+    </section>
+
+  </body>
+</html>
