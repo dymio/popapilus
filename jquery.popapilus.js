@@ -142,13 +142,21 @@
       holder.find(".close").off('click', _close);
     }
 
+    function fillWithData( data ) {
+      holder.empty();
+      holder.append(data);
+    }
+
+    function _showOverlay() {
+      if (_session_opts.modal && overlay) { overlay.show(_session_opts); }
+    }
 
     this.show = function( data, show_options ) {
       _session_opts = $.extend( {}, options, show_options );
 
       if (_is_visible) {  inactivate(); }
 
-      if (data) { holder.empty(); holder.append(data); }
+      if (data) { fillWithData( data ); }
 
       if (!_session_opts.ignore_close_btn) {
         holder.find(".close").on('click', _close);
@@ -160,7 +168,7 @@
         overlay.onClickFunction = function(evnt) { self.hide(); }
       }
 
-      if (_session_opts.modal && overlay) { overlay.show(_session_opts); }
+      _showOverlay();
 
       if (_session_opts.centered) {
         $(window).on('resize', centerHolder);
@@ -176,6 +184,14 @@
       }
     }
 
+    this.showOverlay = function( show_options ) {
+      _session_opts = $.extend( {}, options, show_options );
+      _showOverlay();
+    }
+
+    this.setData = function( data ) {
+      if (data) { fillWithData( data ); }
+    }
 
     this.hide = function() {
       inactivate();
